@@ -11,14 +11,14 @@ exports.onPreInit = async () => {
   const URL = `https://api.covid19tracking.narrativa.com/api/country/spain/region/andalucia/sub_region/jaen?date_from=2020-04-01&date_to=${today}`;
 
   try {
-    /*const response = await fetch(URL, {
+    const response = await fetch(URL, {
       timeout: 120000,
       retries: 3,
       retryDelay: 20000,
     });
 
-    const apiData = await response.json();*/
-    const apiData = JSON.parse(fs.readFileSync(path.resolve('data/raw.json')));
+    const apiData = await response.json();
+    //const apiData = JSON.parse(fs.readFileSync(path.resolve('data/raw.json')));
 
     const writePath = `${path.resolve('data')}/data.json`;
 
