@@ -5,9 +5,9 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    title: `Datos COVID-19 Jaén`,
+    description: `Cuadro de mando de datos COVID-19 para la provincia de Jaén`,
+    author: `@algm`,
   },
 
   plugins: [

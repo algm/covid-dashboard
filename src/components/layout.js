@@ -3,8 +3,8 @@ import React from 'react';
 
 function Layout({ children }) {
   return (
-    <div className="w-screen h-screen flex min-h-screen font-sans text-gray-900 content-center items-stretch justify-stretch">
-      <main className="flex w-full items-stretch content-stretch justify-stretch">
+    <div className="h-screen flex min-h-screen font-sans text-gray-900 content-center items-stretch justify-center">
+      <main className="flex flex-1 items-stretch content-center justify-center">
         {children}
       </main>
     </div>
