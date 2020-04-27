@@ -8,7 +8,7 @@ const pickBy = require('lodash.pickby');
 const startsWith = require('lodash.startswith');
 
 exports.onPreInit = async () => {
-  const URL = `https://api.covid19tracking.narrativa.com/api/country/spain/region/andalucia/sub_region/jaen?date_from=2020-04-01&date_to=${today}`;
+  const URL = `https://api.covid19tracking.narrativa.com/api/country/spain/region/andalucia/sub_region/jaen?date_from=2020-03-12&date_to=${today}`;
 
   try {
     const response = await fetch(URL, {

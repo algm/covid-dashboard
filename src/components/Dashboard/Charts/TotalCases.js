@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LineChart from './LineChart';
+import ScaleSelector from '../../ScaleSelector';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 
 function TotalCases({ data }) {
+  const [scale, setScale] = useState('log');
+
   const processedData = [
     {
       id: 'totalCases',
@@ -18,7 +21,15 @@ function TotalCases({ data }) {
   ];
 
   return (
-    <LineChart data={processedData} labelX="Día" labelY="Casos"></LineChart>
+    <>
+      <ScaleSelector selected={scale} onChange={setScale}></ScaleSelector>
+      <LineChart
+        data={processedData}
+        labelX="Día"
+        labelY="Casos"
+        yScale={scale}
+      ></LineChart>
+    </>
   );
 }
 

@@ -12,10 +12,10 @@ function Dashboard({ data }) {
       <Header lastUpdate={data.lastUpdate}></Header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gray-100 flex-1">
-        <Widget title="Casos acumulados totales (log)">
+        <Widget title="Casos acumulados">
           <TotalCases data={data.data}></TotalCases>
         </Widget>
-        <Widget title="Muertes acumuladas totales (log)">
+        <Widget title="Muertes acumuladas">
           <TotalDeath data={data.data}></TotalDeath>
         </Widget>
       </div>
