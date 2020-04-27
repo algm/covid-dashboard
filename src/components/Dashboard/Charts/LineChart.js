@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ResponsiveLine } from '@nivo/line';
+import { ResponsiveLineCanvas } from '@nivo/line';
 
 function LineChart({
   data,
@@ -35,7 +35,7 @@ function LineChart({
   }
 
   return (
-    <ResponsiveLine
+    <ResponsiveLineCanvas
       data={data}
       colors={{ scheme: 'dark2' }}
       xScale={{
