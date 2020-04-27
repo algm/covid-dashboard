@@ -2,7 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
 
-function LineChart({ data, labelX, labelY, yScale }) {
+function LineChart({
+  data,
+  labelX,
+  labelY,
+  yScale,
+  yValues,
+  logBase,
+  ...props
+}) {
   let yScaleType = yScale || 'linear';
 
   let computedYScale = {
@@ -17,13 +25,13 @@ function LineChart({ data, labelX, labelY, yScale }) {
   if (yScaleType === 'log') {
     computedYScale = {
       type: 'log',
-      base: 10,
+      base: logBase || 10,
       max: 'auto',
       stacked: true,
       reverse: false,
     };
 
-    tickValues = [10, 100, 1000, 10000];
+    tickValues = yValues || [10, 100, 1000, 10000];
   }
 
   return (
@@ -62,7 +70,7 @@ function LineChart({ data, labelX, labelY, yScale }) {
         tickValues,
       }}
       enableGridX={false}
-      curve="natural"
+      curve="monotoneX"
       pointSize={3}
       pointColor={{ theme: 'background' }}
       pointBorderWidth={2}
@@ -70,6 +78,7 @@ function LineChart({ data, labelX, labelY, yScale }) {
       pointLabel=""
       pointLabelYOffset={-12}
       useMesh={true}
+      {...props}
     />
   );
 }
@@ -79,6 +88,8 @@ LineChart.propTypes = {
   labelX: PropTypes.string.isRequired,
   labelY: PropTypes.string.isRequired,
   yScale: PropTypes.string,
+  yValues: PropTypes.array,
+  logBase: PropTypes.number,
 };
 
 export default LineChart;
