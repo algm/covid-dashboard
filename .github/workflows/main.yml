@@ -3,7 +3,7 @@
 name: Trigger Netlify Build
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "0 0 * * *"
 jobs:
   build:
     name: Request Netlify Webhook
