@@ -12,13 +12,21 @@ function TotalActive({ data }) {
       id: 'totalActive',
       color: '#276749',
       data: data
-        .map((row) => ({
-          x: format(Date.parse(row.date), 'dd/MM'),
-          y:
+        .map((row) => {
+          let result =
             row.data.today_confirmed -
             row.data.today_deaths -
-            row.data.today_recovered,
-        }))
+            row.data.today_recovered;
+
+          if (result <= 0) {
+            result = scale === 'log' ? 1 : 0.00001;
+          }
+
+          return {
+            x: format(Date.parse(row.date), 'dd/MM'),
+            y: result,
+          };
+        })
         .filter(({ y }) => !!y),
     },
   ];
