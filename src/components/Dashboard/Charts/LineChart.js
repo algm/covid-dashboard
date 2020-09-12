@@ -16,6 +16,7 @@ function LineChart({
   let computedYScale = {
     type: 'linear',
     max: 'auto',
+    min: 0,
     stacked: true,
     reverse: false,
   };

@@ -1,5 +1,6 @@
 import React from 'react';
 import Widget from './Dashboard/Widget';
+import LastNumbers from './Dashboard/LastNumbers';
 import Header from './Header';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
@@ -17,6 +18,10 @@ function Dashboard({ data }) {
       <Header lastUpdate={data.lastUpdate}></Header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gray-100 flex-1">
+        <LastNumbers
+          className="col-span-1 md:col-span-2 xl:col-span-3"
+          data={data.data}
+        ></LastNumbers>
         <Widget
           title="Resumen de situación"
           className="row-span-2 col-span-1 md:col-span-2 xl:col-span-3"

@@ -24,13 +24,21 @@ function CurrentSituation({ data }) {
     {
       id: 'Casos activos',
       color: '#276749',
-      data: data.map((row) => ({
-        x: format(Date.parse(row.date), 'dd/MM'),
-        y:
+      data: data.map((row) => {
+        let value =
           row.data.today_confirmed -
           row.data.today_deaths -
-          row.data.today_recovered,
-      })),
+          row.data.today_recovered;
+
+        if (value < 0) {
+          value = 0;
+        }
+
+        return {
+          x: format(Date.parse(row.date), 'dd/MM'),
+          y: value,
+        };
+      }),
     },
   ];
 
@@ -38,10 +46,10 @@ function CurrentSituation({ data }) {
     <>
       <LineChart
         data={processedData}
-        yScale={'linear'}
+        yScale="Linear"
         labelX="Día"
         labelY="Resumen de situación"
-        yValues={[10, 100, 1000]}
+        yValues={[0, 10, 100, 1000]}
         logBase={10}
         enableArea={true}
         legends={[
